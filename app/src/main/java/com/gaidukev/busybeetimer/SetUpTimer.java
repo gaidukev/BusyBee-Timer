@@ -17,8 +17,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.gaidukev.busybeetimer.databinding.FragmentSetUpTimerBinding;
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
+
+import kotlin.Unit;
 
 // Circular slider documentation: https://github.com/lopspower/CircularProgressBar
 
@@ -76,6 +80,9 @@ public class SetUpTimer extends Fragment {
     };
     private View mContentView;
     private View mControlsView;
+    private TextView lengthOfSessionView;
+    private CircularProgressBar lengthOfSessionSelector;
+
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
         public void run() {
@@ -109,6 +116,7 @@ public class SetUpTimer extends Fragment {
         }
     };
 
+
     private FragmentSetUpTimerBinding binding;
 
     @Nullable
@@ -129,6 +137,8 @@ public class SetUpTimer extends Fragment {
 
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
+        lengthOfSessionView = binding.progressBarValue;
+        lengthOfSessionSelector = binding.totalTimerDuration;
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +146,12 @@ public class SetUpTimer extends Fragment {
             public void onClick(View view) {
                 toggle();
             }
+        });
+
+        lengthOfSessionSelector.setOnProgressChangeListener(progress -> {
+            // Do something
+            lengthOfSessionView.setText(Math.round(progress));
+            return Unit.INSTANCE;
         });
 
         // Upon interacting with UI controls, delay any scheduled hide()
