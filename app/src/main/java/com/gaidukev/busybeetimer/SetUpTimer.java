@@ -20,6 +20,9 @@ import android.view.WindowManager;
 
 import com.gaidukev.busybeetimer.databinding.FragmentSetUpTimerBinding;
 
+// Circular slider documentation: https://github.com/lopspower/CircularProgressBar
+
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
@@ -122,23 +125,23 @@ public class SetUpTimer extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mVisible = true;
-
-        mControlsView = binding.fullscreenContentControls;
-        mContentView = binding.fullscreenContent;
-
-        // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggle();
-            }
-        });
-
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        binding.dummyButton.setOnTouchListener(mDelayHideTouchListener);
+//        mVisible = true;
+//
+//        mControlsView = binding.fullscreenContentControls;
+//        mContentView = binding.fullscreenContent;
+//
+//        // Set up the user interaction to manually show or hide the system UI.
+//        mContentView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                toggle();
+//            }
+//        });
+//
+//        // Upon interacting with UI controls, delay any scheduled hide()
+//        // operations to prevent the jarring behavior of controls going away
+//        // while interacting with the UI.
+//        binding.dummyButton.setOnTouchListener(mDelayHideTouchListener);
     }
 
     @Override

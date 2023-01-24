@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -106,6 +107,17 @@ public class OptionSelectionScreen extends Fragment {
         }
     };
 
+    private final View.OnClickListener startTimerClickListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            Fragment setUpTimerFragment = new SetUpTimer();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fullscreen_content, setUpTimerFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+    };
+
     private FragmentOptionSelectionScreenBinding binding;
 
     @Nullable
@@ -134,6 +146,9 @@ public class OptionSelectionScreen extends Fragment {
                 toggle();
             }
         });
+
+        binding.startTimer.setOnClickListener(startTimerClickListener);
+
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
