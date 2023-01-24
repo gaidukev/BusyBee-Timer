@@ -112,7 +112,7 @@ public class OptionSelectionScreen extends Fragment {
         public void onClick(View view) {
             Fragment setUpTimerFragment = new SetUpTimer();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fullscreen_content, setUpTimerFragment);
+            transaction.replace(R.id.full_screen_content_container, setUpTimerFragment);
             transaction.addToBackStack(null);
             transaction.commit();
         }
