@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -148,17 +149,8 @@ public class SetUpTimer extends Fragment {
             }
         });
 
-        lengthOfSessionSelector.setOnProgressChangeListener(progress -> {
-            // Do something
-            lengthOfSessionView.setText(Math.round(progress));
-            return Unit.INSTANCE;
-        });
-
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        binding.dummyButton.setOnTouchListener(mDelayHideTouchListener);
     }
+
 
     @Override
     public void onResume() {
