@@ -138,8 +138,6 @@ public class SetUpTimer extends Fragment {
 
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
-        lengthOfSessionView = binding.progressBarValue;
-        lengthOfSessionSelector = binding.totalTimerDuration;
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
