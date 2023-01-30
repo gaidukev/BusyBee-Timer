@@ -40,12 +40,9 @@
                     android:layout_weight="1"
                     android:text="How long would you like to work for?" />
 
-                <ImageView
-                    android:id="@+id/selection_spinner"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/triangle_seekbar_filler" />
-
+                <com.gaidukev.busybeetimer.CircularSelector
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
             </LinearLayout>
 
             <LinearLayout
