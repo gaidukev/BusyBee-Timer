@@ -41,8 +41,9 @@
                     android:text="How long would you like to work for?" />
 
                 <com.gaidukev.busybeetimer.CircularSelector
-                    android:layout_width="10dp"
-                    android:layout_height="10dp" />
+                    android:id="@+id/circularSelector"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp" />
             </LinearLayout>
 
             <LinearLayout
