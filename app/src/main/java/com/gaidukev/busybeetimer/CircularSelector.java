@@ -1,11 +1,14 @@
 package com.gaidukev.busybeetimer;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 
@@ -13,8 +16,8 @@ public class CircularSelector extends View {
     private Paint paint;
     private int widthX;
     private int widthY;
-    public CircularSelector(Context context, int defStyle) {
-        super(context);
+    public CircularSelector(Context context, AttributeSet attrs) {
+        super(context, attrs);
         paint = new Paint();
         paint.setARGB(1, 255, 77, 0);
         paint.setStrokeWidth(1f);
@@ -34,7 +37,7 @@ public class CircularSelector extends View {
     }
 
     public CircularSelector(Context context, AttributeSet attrs, int defStyle) {
-        super(context);
+        super(context, attrs, defStyle);
         paint = new Paint();
         paint.setARGB(1, 255, 77, 0);
         paint.setStrokeWidth(1f);
@@ -48,6 +51,7 @@ public class CircularSelector extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         widthX = widthMeasureSpec;
         widthY = heightMeasureSpec;
+
     }
 
     @Override
