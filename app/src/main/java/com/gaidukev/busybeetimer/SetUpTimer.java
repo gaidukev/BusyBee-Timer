@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -82,7 +83,7 @@ public class SetUpTimer extends Fragment {
     private View mContentView;
     private View mControlsView;
     private TextView lengthOfSessionView;
-    private CircularProgressBar lengthOfSessionSelector;
+    private CircularSelector lengthOfSessionSelector;
 
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
@@ -138,6 +139,8 @@ public class SetUpTimer extends Fragment {
 
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
+        lengthOfSessionSelector = binding.circularSelector;
+
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {

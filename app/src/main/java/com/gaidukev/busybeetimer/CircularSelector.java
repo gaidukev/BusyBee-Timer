@@ -13,9 +13,28 @@ public class CircularSelector extends View {
     private Paint paint;
     private int widthX;
     private int widthY;
+    public CircularSelector(Context context, int defStyle) {
+        super(context);
+        paint = new Paint();
+        paint.setARGB(1, 255, 77, 0);
+        paint.setStrokeWidth(1f);
+        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        paint.setStyle(Paint.Style.FILL); // can also use Paint.Style.STROKE, with strokeWidth = ...
+        setWillNotDraw(false);
+    }
 
-    public CircularSelector(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+    public CircularSelector(Context context) {
+        super(context);
+        paint = new Paint();
+        paint.setARGB(1, 255, 77, 0);
+        paint.setStrokeWidth(1f);
+        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        paint.setStyle(Paint.Style.FILL); // can also use Paint.Style.STROKE, with strokeWidth = ...
+        setWillNotDraw(false);
+    }
+
+    public CircularSelector(Context context, AttributeSet attrs, int defStyle) {
+        super(context);
         paint = new Paint();
         paint.setARGB(1, 255, 77, 0);
         paint.setStrokeWidth(1f);
