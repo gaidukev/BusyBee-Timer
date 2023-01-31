@@ -26,26 +26,6 @@ public class CircularSelector extends View {
         setWillNotDraw(false);
     }
 
-    public CircularSelector(Context context) {
-        super(context);
-        paint = new Paint();
-        paint.setARGB(1, 255, 77, 0);
-        paint.setStrokeWidth(1f);
-        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        paint.setStyle(Paint.Style.FILL); // can also use Paint.Style.STROKE, with strokeWidth = ...
-        setWillNotDraw(false);
-    }
-
-    public CircularSelector(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        paint = new Paint();
-        paint.setARGB(1, 255, 77, 0);
-        paint.setStrokeWidth(1f);
-        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        paint.setStyle(Paint.Style.FILL); // can also use Paint.Style.STROKE, with strokeWidth = ...
-        setWillNotDraw(false);
-    }
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -56,8 +36,9 @@ public class CircularSelector extends View {
 
     @Override
     public void onDraw(Canvas canvas){
+        System.out.println("HHHHHHHHHHHHHHH");
         super.onDraw(canvas);
-        canvas.drawCircle(widthX, widthY, 10f, paint);
+        canvas.drawCircle(widthX-0, widthY+5, 100000f, paint);
 
     }
 }
