@@ -42,9 +42,14 @@
 
                 <com.gaidukev.busybeetimer.CircularSelector
                     android:id="@+id/circularSelector"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    app:lineColor="@color/material_dynamic_neutral10"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    app:circleColor="#ff0099"
+                    app:circleLabel="Hello"
+                    app:progressColor="@color/material_dynamic_neutral10"/>
             </LinearLayout>
 
             <LinearLayout
