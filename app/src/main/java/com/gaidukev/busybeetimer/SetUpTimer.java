@@ -20,6 +20,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.gaidukev.busybeetimer.databinding.FragmentSetUpTimerBinding;
@@ -34,7 +37,7 @@ import kotlin.Unit;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class SetUpTimer extends Fragment {
+public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedListener {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -85,6 +88,7 @@ public class SetUpTimer extends Fragment {
     private View mControlsView;
     private TextView lengthOfSessionView;
     private CircularSelector lengthOfSessionSelector;
+    private Spinner timerCategory;
 
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
@@ -141,6 +145,15 @@ public class SetUpTimer extends Fragment {
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
         lengthOfSessionSelector = binding.circularSelector;
+        timerCategory = binding.timerCategory;
+
+        // Set up spinner
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.timer_categories, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        timerCategory.setAdapter(adapter);
+
+        // Set spinner to respond to user selection
+        timerCategory.setOnItemSelectedListener(this);
 
 
         // Set up the user interaction to manually show or hide the system UI.
@@ -247,5 +260,15 @@ public class SetUpTimer extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

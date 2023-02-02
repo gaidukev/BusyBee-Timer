@@ -69,23 +69,30 @@ public class CircularSelector extends View {
 
     @Override
     protected void onDraw(Canvas canvas){
-        int viewWidthHalf = this.getMeasuredWidth()/2;
-        int viewHeightHalf = this.getMeasuredHeight()/2;
+        super.onDraw(canvas);
+        View parent = (View)this.getParent();
+
+        int viewWidthHalf = parent.getWidth()/2;//this.getMeasuredWidth()/2;
+        int viewHeightHalf = parent.getHeight()/2;//this.getMeasuredHeight()/2;
+        int viewLeft = parent.getLeft();
+        int viewRight = parent.getRight();
+        int viewTop = parent.getTop();
+        int viewBottom = parent.getBottom();
 
         int radius = 0;
         if (viewWidthHalf>viewHeightHalf)
-            radius=viewHeightHalf-10;
+            radius=viewHeightHalf-50;
         else
-            radius=viewWidthHalf-10;
+            radius=viewWidthHalf-50;
 
         circlePaint.setStyle(Paint.Style.FILL);
         circlePaint.setAntiAlias(true);
         circlePaint.setColor(circleColor);
 
-        canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
+        //canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
+        canvas.drawArc(viewLeft, viewTop, viewRight, viewBottom, 0f, 90f, true, circlePaint);
 
-        super.onDraw(canvas);
-        canvas.drawCircle(widthX-0, widthY+5, 10f, circlePaint);
+        //canvas.drawCircle(widthX-0, widthY+5, 10f, circlePaint);
 
         circlePaint.setColor(textColor);
         circlePaint.setTextAlign(Paint.Align.CENTER);
