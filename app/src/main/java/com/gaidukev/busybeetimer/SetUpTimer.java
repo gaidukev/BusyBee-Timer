@@ -264,7 +264,7 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        
+
     }
 
     @Override
