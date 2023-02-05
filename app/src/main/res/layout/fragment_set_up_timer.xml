@@ -19,6 +19,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingBottom="7dp"
+            android:paddingTop="20dp"
             android:id="@id/fullscreen_content"
             android:orientation="vertical">
 
@@ -56,6 +60,7 @@
                         app:backgroundColor="@color/material_dynamic_neutral20"
                         app:circleColor="#ff0099"
                         app:circleLabel="Hello"
+                        app:textColor="@color/white"
                         app:progressColor="@color/material_dynamic_neutral10" />
                 </FrameLayout>
 
@@ -99,7 +104,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
@@ -113,6 +118,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/beginTimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Begin working" />
 
         </LinearLayout>
         <LinearLayout

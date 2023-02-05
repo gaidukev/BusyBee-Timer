@@ -98,7 +98,7 @@ public class CircularSelector extends View {
 
         circlePaint.setColor(textColor);
         circlePaint.setTextAlign(Paint.Align.CENTER);
-        circlePaint.setTextSize(20);
+        circlePaint.setTextSize(radius/3);
         canvas.drawText(circleText, viewWidthHalf, viewHeightHalf, circlePaint);
 
     }
