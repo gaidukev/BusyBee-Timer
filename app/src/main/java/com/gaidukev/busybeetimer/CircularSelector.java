@@ -77,24 +77,24 @@ public class CircularSelector extends View {
         int viewBottom = this.getBottom();
 
         int viewWidthHalf = ( viewRight - viewLeft) / 2;//parent.getWidth()/2;// this.getMeasuredWidth()/2; //
-        int viewHeightHalf = (viewTop - viewBottom) / 2;//parent.getHeight()/2;// this.getMeasuredHeight()/2; //
+        int viewHeightHalf = (viewBottom - viewTop) / 2;//parent.getHeight()/2;// this.getMeasuredHeight()/2; //
 
         int radius = 0;
         if (viewWidthHalf>viewHeightHalf)
-            radius=viewHeightHalf-10;
+            radius=viewHeightHalf-30;
         else
-            radius=viewWidthHalf-10;
+            radius=viewWidthHalf-30;
 
         circlePaint.setStyle(Paint.Style.FILL);
         circlePaint.setAntiAlias(true);
         circlePaint.setColor(circleColor);
 
         //canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
-        canvas.drawArc(viewLeft, viewTop, viewRight, viewBottom, 270f, 180f, true, circlePaint);
+        canvas.drawArc(viewLeft, viewTop, viewRight, viewBottom, 180f, 100f, true, circlePaint);
 
         circlePaint.setColor(backgroundColor);
-        canvas.drawCircle(viewWidthHalf, viewHeightHalf, 30f, circlePaint);
-        System.out.println(viewWidthHalf + " eughhhhh   " + viewHeightHalf);
+        canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
+        System.out.println(radius);
 
         circlePaint.setColor(textColor);
         circlePaint.setTextAlign(Paint.Align.CENTER);
