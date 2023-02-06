@@ -15,6 +15,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,6 +27,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gaidukev.busybeetimer.databinding.FragmentSetUpTimerBinding;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
@@ -154,6 +156,7 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.timer_categories, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         timerCategory.setAdapter(adapter);
+        lengthOfSessionSelector.setOnTouchListener(circularSliderListener);
 
         // Set spinner to respond to user selection
         timerCategory.setOnItemSelectedListener(this);
@@ -168,6 +171,27 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
         });
 
     }
+
+    private View.OnTouchListener circularSliderListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            System.out.println("MOTION EVENT" + motionEvent);
+            int action = motionEvent.getAction();
+            switch (action) {
+                case MotionEvent.ACTION_DOWN:
+                    Log.i("TAG", "touched down");
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    System.out.println(motionEvent.getX() + motionEvent.getY());
+                    //Toast.makeText(this,"moving: (" + x + "," + y +")",Toast.LENGTH_LONG).show();
+                    break;
+                case MotionEvent.ACTION_UP:
+                    Log.i("TAG", "touched up");
+                    break;
+            }
+            return true;
+        }
+    };
 
 
     @Override
