@@ -96,6 +96,7 @@ public class CircularSelector extends View {
         // negative sweep angle: counter clockwise
         // 0 is at 0 degrees and then degrees go clockwise
 
+
         circlePaint.setColor(backgroundColor);
         canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
         System.out.println(radius);
@@ -108,8 +109,13 @@ public class CircularSelector extends View {
     }
 
     public void updateSweepAngle(float xVal, float yVal){
-        sweepAngle = (float) Math.toDegrees(Math.atan(yVal / xVal));
+        sweepAngle = (float) Math.toDegrees(Math.atan(yVal / xVal)) * 3.14f;
         System.out.println("sweep angle: " + sweepAngle);
-        invalidate();
+
+        // update text displayed in center
+        circleText = String.valueOf(sweepAngle);
+
+        invalidate(); // forces the view to re-draw itself
+
     }
 }

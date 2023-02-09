@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,6 +24,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -93,6 +95,7 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
     private TextView lengthOfSessionView;
     private CircularSelector lengthOfSessionSelector;
     private Spinner timerCategory;
+    private Button beginWorkingButton;
 
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
@@ -150,6 +153,7 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
         mContentView = binding.fullscreenContent;
         lengthOfSessionSelector = binding.circularSelector;
         timerCategory = binding.timerCategory;
+        beginWorkingButton = binding.beginTimer;
 
 
         // Set up spinner
@@ -160,6 +164,7 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
 
         // Set spinner to respond to user selection
         timerCategory.setOnItemSelectedListener(this);
+        beginWorkingButton.setOnClickListener(buttonClickListener);
 
 
         // Set up the user interaction to manually show or hide the system UI.
@@ -171,6 +176,21 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
         });
 
     }
+
+    private Button.OnClickListener buttonClickListener = new Button.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+
+            // todo: input validation
+            // todo: remove the deprecated functions
+            Fragment timerFragment = new Timer();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.full_screen_content_container, timerFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
+        }
+    };
 
     private View.OnTouchListener circularSliderListener = new View.OnTouchListener() {
         @Override
