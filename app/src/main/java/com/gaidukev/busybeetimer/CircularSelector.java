@@ -17,6 +17,8 @@ public class CircularSelector extends View {
     private int widthX;
     private int widthY;
 
+    private float sweepAngle = 90f;
+
     // get colors
     private int circleColor, backgroundColor, progressColor, textColor;
     // label text
@@ -90,7 +92,9 @@ public class CircularSelector extends View {
         circlePaint.setColor(circleColor);
 
         //canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
-        canvas.drawArc(viewLeft, viewTop, viewRight, viewBottom, 180f, 100f, true, circlePaint);
+        canvas.drawArc(viewLeft, viewTop, viewRight, viewBottom, -90f, sweepAngle, true, circlePaint);
+        // negative sweep angle: counter clockwise
+        // 0 is at 0 degrees and then degrees go clockwise
 
         circlePaint.setColor(backgroundColor);
         canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
@@ -101,5 +105,11 @@ public class CircularSelector extends View {
         circlePaint.setTextSize(radius/3);
         canvas.drawText(circleText, viewWidthHalf, viewHeightHalf, circlePaint);
 
+    }
+
+    public void updateSweepAngle(float xVal, float yVal){
+        sweepAngle = (float) Math.toDegrees(Math.atan(yVal / xVal));
+        System.out.println("sweep angle: " + sweepAngle);
+        invalidate();
     }
 }

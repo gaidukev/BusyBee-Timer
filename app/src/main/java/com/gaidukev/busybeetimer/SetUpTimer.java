@@ -180,9 +180,12 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
             switch (action) {
                 case MotionEvent.ACTION_DOWN:
                     Log.i("TAG", "touched down");
+                    System.out.println(motionEvent.getX() + motionEvent.getY());
+                    lengthOfSessionSelector.updateSweepAngle(motionEvent.getX(), motionEvent.getY());
                     break;
                 case MotionEvent.ACTION_MOVE:
                     System.out.println(motionEvent.getX() + motionEvent.getY());
+                    lengthOfSessionSelector.updateSweepAngle(motionEvent.getX(), motionEvent.getY());
                     //Toast.makeText(this,"moving: (" + x + "," + y +")",Toast.LENGTH_LONG).show();
                     break;
                 case MotionEvent.ACTION_UP:
