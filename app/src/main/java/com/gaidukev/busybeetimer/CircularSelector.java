@@ -78,8 +78,8 @@ public class CircularSelector extends View {
         int viewTop = this.getTop();
         int viewBottom = this.getBottom();
 
-        int viewWidthHalf = ( viewRight - viewLeft) / 2;//parent.getWidth()/2;// this.getMeasuredWidth()/2; //
-        int viewHeightHalf = (viewBottom - viewTop) / 2;//parent.getHeight()/2;// this.getMeasuredHeight()/2; //
+        int viewWidthHalf = ( viewRight - viewLeft) / 2;
+        int viewHeightHalf = (viewBottom - viewTop) / 2;
 
         int radius = 0;
         if (viewWidthHalf>viewHeightHalf)
@@ -109,9 +109,24 @@ public class CircularSelector extends View {
     }
 
     public void updateSweepAngle(float xVal, float yVal){
-        sweepAngle = (float) Math.toDegrees(Math.atan(yVal / xVal)) * 3.14f;
-        System.out.println("sweep angle: " + sweepAngle);
+        sweepAngle = 0;
+        float halfWidth = (this.getRight() - this.getLeft()) / 2;
+        float halfHeight = (this.getBottom() - this.getTop()) / 2;
 
+
+        float refAngle = (float) Math.toDegrees(Math.atan(Math.abs((xVal - halfHeight)/ (yVal - halfWidth))));
+
+
+        if ((xVal > (halfWidth)) && (yVal > halfHeight)){
+            sweepAngle = 180 - refAngle; // Q2
+        }
+        else if ((xVal > halfWidth) && (yVal < halfHeight)){
+            sweepAngle = 0 + refAngle; // Q1
+        } else if ((xVal < halfWidth) && (yVal < halfHeight)){
+            sweepAngle = 360 - refAngle; // Q4
+        } else {
+            sweepAngle = 180 + refAngle; //
+        }
         // update text displayed in center
         circleText = String.valueOf(sweepAngle);
 
