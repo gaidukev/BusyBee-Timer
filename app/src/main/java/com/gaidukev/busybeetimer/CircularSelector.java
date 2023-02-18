@@ -14,9 +14,6 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 
 public class CircularSelector extends View {
-    private int widthX;
-    private int widthY;
-
     private float sweepAngle = 90f;
 
     // get colors
@@ -47,26 +44,6 @@ public class CircularSelector extends View {
         circlePaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         circlePaint.setStyle(Paint.Style.FILL); // can also use Paint.Style.STROKE, with strokeWidth = ...
         setWillNotDraw(false);
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        widthX = widthMeasureSpec;
-        widthY = heightMeasureSpec;
-
-        // Try for a width based on our minimum
-        int minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
-        int w = resolveSizeAndState(minw, widthMeasureSpec, 1);
-
-        // Whatever the width ends up being, ask for a height that would let the pie
-        // get as big as it can
-        int minh = MeasureSpec.getSize(w) + getPaddingBottom() + getPaddingTop();
-        int h = resolveSizeAndState(minh, heightMeasureSpec, 0);
-
-        //setMeasuredDimension(w, h);
-        setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
-
     }
 
     @Override
