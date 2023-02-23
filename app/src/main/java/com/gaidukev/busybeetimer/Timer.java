@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -73,6 +74,8 @@ public class Timer extends Fragment {
     };
     private View mContentView;
     private View mControlsView;
+
+
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
         public void run() {
@@ -115,6 +118,7 @@ public class Timer extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = FragmentTimerBinding.inflate(inflater, container, false);
+
         return binding.getRoot();
 
     }
@@ -124,8 +128,13 @@ public class Timer extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mVisible = true;
 
+
         mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
+
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ViewGroup parent = (ViewGroup) binding.container_layout;
+        inflater.inflate(R.layout.hexagon_view, parent);
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
