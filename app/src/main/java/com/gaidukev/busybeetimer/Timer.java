@@ -130,19 +130,19 @@ public class Timer extends Fragment {
 
 
         mControlsView = binding.fullscreenContentControls;
-        mContentView = binding.fullscreenContent;
+        //mContentView = binding.fullscreenContent;
 
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ViewGroup parent = (ViewGroup) binding.container_layout;
+        ViewGroup parent = (ViewGroup) binding.containerLayout;
         inflater.inflate(R.layout.hexagon_view, parent);
 
         // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggle();
-            }
-        });
+//        mContentView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                toggle();
+//            }
+//        });
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
