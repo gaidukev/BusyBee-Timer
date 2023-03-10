@@ -74,7 +74,7 @@ public class OptionSelectionScreen extends Fragment {
         }
     };
     private View mContentView;
-    private View mControlsView;
+
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
         public void run() {
@@ -83,7 +83,6 @@ public class OptionSelectionScreen extends Fragment {
             if (actionBar != null) {
                 actionBar.show();
             }
-            mControlsView.setVisibility(View.VISIBLE);
         }
     };
     private boolean mVisible;
@@ -137,7 +136,7 @@ public class OptionSelectionScreen extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mVisible = true;
 
-        mControlsView = binding.fullscreenContentControls;
+
         mContentView = binding.fullscreenContent;
 
 
@@ -151,11 +150,6 @@ public class OptionSelectionScreen extends Fragment {
 
         binding.startTimer.setOnClickListener(startTimerClickListener);
 
-
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        binding.dummyButton.setOnTouchListener(mDelayHideTouchListener);
     }
 
     @Override
@@ -187,7 +181,6 @@ public class OptionSelectionScreen extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         mContentView = null;
-        mControlsView = null;
     }
 
     private void toggle() {
@@ -204,7 +197,7 @@ public class OptionSelectionScreen extends Fragment {
         if (actionBar != null) {
             actionBar.hide();
         }
-        mControlsView.setVisibility(View.GONE);
+
         mVisible = false;
 
         // Schedule a runnable to remove the status and navigation bar after a delay

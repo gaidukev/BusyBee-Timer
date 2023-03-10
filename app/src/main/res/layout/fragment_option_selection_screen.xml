@@ -45,9 +45,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:backgroundTint="#00FFFFFF"
                 android:alpha="1"
-                android:text="View Focus History..." />
+                android:backgroundTint="#00FFFFFF"
+                android:text="View Focus History..."
+                android:textColor="#FFDBB0" />
         </RelativeLayout>
 
     </FrameLayout>
