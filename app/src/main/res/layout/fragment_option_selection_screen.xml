@@ -1,60 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.BusyBeeTimer.FullscreenContainer"
     tools:context=".OptionSelectionScreen">
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/full_screen_content_container"
         android:fitsSystemWindows="true">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
+            android:scaleType="centerCrop"
+            android:src="@drawable/animegirlbg2" />
+
+        <RelativeLayout
             android:id="@id/fullscreen_content"
-            tools:context=".MainActivity">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp">
 
             <Button
                 android:id="@+id/start_timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Start Timer" />
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Start Focusing"
+                android:textColorLink="#3D2D5A" />
 
             <Button
                 android:id="@+id/view_stats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View Stats" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="@style/Widget.Theme.BusyBeeTimer.ButtonBar.Fullscreen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <Button
-                android:id="@+id/dummy_button"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
-
-        </LinearLayout>
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="#00FFFFFF"
+                android:alpha="1"
+                android:text="View Focus History..." />
+        </RelativeLayout>
 
     </FrameLayout>
 
