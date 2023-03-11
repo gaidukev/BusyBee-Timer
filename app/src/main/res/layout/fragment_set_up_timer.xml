@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/fullscreenBackgroundColor"
+    android:background="#F1E6E0"
     android:theme="@style/ThemeOverlay.BusyBeeTimer.FullscreenContainer"
     tools:context=".SetUpTimer">
 
@@ -26,80 +26,128 @@
             android:id="@id/fullscreen_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/Customize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Customize" />
 
             <LinearLayout
-                android:id="@+id/workLongevityPrompt"
+                android:id="@+id/numberOfPeriodsPrompt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/work_how_long"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="How long would you like to work for?" />
+                    android:text="How many work periods would you like?" />
 
-
-                <FrameLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/selectorContainer"
-                    android:backgroundTint="@color/material_dynamic_neutral10"
-                    android:layout_gravity="end"
-                    android:backgroundTintMode="screen">
-
-                    <com.gaidukev.busybeetimer.CircularSelector
-                        android:id="@+id/circularSelector"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:backgroundColor="@color/material_dynamic_neutral20"
-                        app:circleColor="#ff0099"
-                        app:circleLabel="Hello"
-                        app:textColor="@color/white"
-                        app:progressColor="@color/material_dynamic_neutral10" />
-                </FrameLayout>
+                <SeekBar
+                    android:id="@+id/howManyWorkPeriods"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="3" />
 
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/preconfigured_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/work_session_how_long"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Long break once every:" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="4 work periods" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lengthOfShortBreak"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Length of short break:" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="5 minutes" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lengthOfLongBreak"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Length of long break:" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="15 minutes" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lengthOfPeriod"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Length of each work period:" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="20 minutes" />
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="How long will each work period be?" />
-
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <RadioButton
-                        android:id="@+id/radioButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="20 minutes" />
-
-                    <RadioButton
-                        android:id="@+id/radioButton3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="40 minutes" />
-
-                    <RadioButton
-                        android:id="@+id/radioButton4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="60 minutes" />
-                </RadioGroup>
+                    android:text="Configure settings..." />
             </LinearLayout>
 
             <LinearLayout
@@ -124,24 +172,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Begin working" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="@style/Widget.Theme.BusyBeeTimer.ButtonBar.Fullscreen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <Button
-                android:id="@+id/dummy_button"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
 
         </LinearLayout>
     </FrameLayout>
