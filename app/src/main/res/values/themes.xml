@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.BusyBeeTimer" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#FF3D2D5A</item>
-        <item name="colorPrimaryVariant">#E93F4D</item>
+        <item name="colorPrimary">#3D2D5A</item>
+        <item name="colorPrimaryVariant">#8D79B3</item>
         <item name="colorOnPrimary">#EEE5E9</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#F1BF98</item>

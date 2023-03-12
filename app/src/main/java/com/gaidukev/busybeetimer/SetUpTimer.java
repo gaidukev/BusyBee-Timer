@@ -92,10 +92,13 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
     };
     private View mContentView;
     private View mControlsView;
-    private TextView lengthOfSessionView;
-    private CircularSelector lengthOfSessionSelector;
     private Spinner timerCategory;
     private Button beginWorkingButton;
+    private LinearLayout categorySelection;
+    private LinearLayout numberOfSessionsSelection;
+    private LinearLayout preSetSelection;
+
+
 
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
@@ -149,18 +152,23 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
         super.onViewCreated(view, savedInstanceState);
         mVisible = true;
 
-        mControlsView = binding.fullscreenContentControls;
         mContentView = binding.fullscreenContent;
-        lengthOfSessionSelector = binding.circularSelector;
         timerCategory = binding.timerCategory;
         beginWorkingButton = binding.beginTimer;
+        categorySelection = binding.categoryLayout;
+        numberOfSessionsSelection = binding.numberOfPeriodsPrompt;
+        preSetSelection = binding.preconfiguredSettings;
+
+        categorySelection.setClipToOutline(true);
+        numberOfSessionsSelection.setClipToOutline(true);
+        preSetSelection.setClipToOutline(true);
 
 
         // Set up spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.timer_categories, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         timerCategory.setAdapter(adapter);
-        lengthOfSessionSelector.setOnTouchListener(circularSliderListener);
+
 
         // Set spinner to respond to user selection
         timerCategory.setOnItemSelectedListener(this);
@@ -192,29 +200,7 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
         }
     };
 
-    private View.OnTouchListener circularSliderListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            System.out.println("MOTION EVENT" + motionEvent);
-            int action = motionEvent.getAction();
-            switch (action) {
-                case MotionEvent.ACTION_DOWN:
-                    Log.i("TAG", "touched down");
-                    System.out.println(motionEvent.getX() + motionEvent.getY());
-                    lengthOfSessionSelector.updateSweepAngle(motionEvent.getX(), motionEvent.getY());
-                    break;
-                case MotionEvent.ACTION_MOVE:
-                    System.out.println(motionEvent.getX() + motionEvent.getY());
-                    lengthOfSessionSelector.updateSweepAngle(motionEvent.getX(), motionEvent.getY());
-                    //Toast.makeText(this,"moving: (" + x + "," + y +")",Toast.LENGTH_LONG).show();
-                    break;
-                case MotionEvent.ACTION_UP:
-                    Log.i("TAG", "touched up");
-                    break;
-            }
-            return true;
-        }
-    };
+
 
 
     @Override
