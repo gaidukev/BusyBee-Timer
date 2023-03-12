@@ -108,7 +108,6 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
             if (actionBar != null) {
                 actionBar.show();
             }
-            mControlsView.setVisibility(View.VISIBLE);
         }
     };
     private boolean mVisible;
@@ -232,7 +231,6 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
     public void onDestroy() {
         super.onDestroy();
         mContentView = null;
-        mControlsView = null;
     }
 
     private void toggle() {
@@ -249,7 +247,6 @@ public class SetUpTimer extends Fragment implements AdapterView.OnItemSelectedLi
         if (actionBar != null) {
             actionBar.hide();
         }
-        mControlsView.setVisibility(View.GONE);
         mVisible = false;
 
         // Schedule a runnable to remove the status and navigation bar after a delay

@@ -31,9 +31,12 @@
                 android:id="@+id/numberOfPeriodsPrompt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/option_selection_screen_bubble"
 
-                android:orientation="vertical">
+                android:layout_margin="15dp"
+                android:background="@drawable/option_selection_screen_bubble"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <TextView
                     android:id="@+id/work_how_long"
@@ -56,7 +59,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="4 periods" />
+                    android:text="4 periods"
+                    android:textAlignment="viewEnd"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -65,92 +70,90 @@
                 android:id="@+id/preconfigured_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="2"
                 android:background="@drawable/option_selection_screen_bubble"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="20dp">
 
 
                 <LinearLayout
-                    android:id="@+id/longBreakOnceEvery"
+                    android:id="@+id/preconfigured_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="3"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/textView8"
+                    <LinearLayout
+                        android:id="@+id/textPrompts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Long break once every:" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textView9"
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Long break once every:" />
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Length of short break:" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Length of long break:" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Length of each work period:" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/textSelection"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="4 work periods" />
-                </LinearLayout>
+                        android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/lengthOfShortBreak"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4 work periods" />
 
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Length of short break:" />
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5 minutes" />
 
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="5 minutes" />
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="15 minutes" />
 
-                <LinearLayout
-                    android:id="@+id/lengthOfLongBreak"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="20 minutes" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Length of long break:" />
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="15 minutes" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lengthOfPeriod"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Length of each work period:" />
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="20 minutes" />
                 </LinearLayout>
 
 
@@ -158,15 +161,20 @@
                     android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Configure settings..." />
+                    android:layout_margin="15dp"
+                    android:layout_weight="1"
+                    android:text="Configure settings..."
+                    app:cornerRadius="15dp" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/categoryLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="15dp"
                 android:background="@drawable/option_selection_screen_bubble"
-                android:id="@+id/categoryLayout"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <TextView
                     android:id="@+id/textView7"
@@ -184,7 +192,10 @@
                 android:id="@+id/beginTimer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Begin working" />
+                android:layout_margin="15dp"
+                android:padding="10dp"
+                android:text="Begin working"
+                app:cornerRadius="15dp" />
 
         </LinearLayout>
     </FrameLayout>
